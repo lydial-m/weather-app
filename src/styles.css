@@ -1,0 +1,153 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  color: #dde6ed;
+  background-color: #dde6ed;
+}
+
+form {
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #dde6ed;
+}
+
+.container {
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 20px 10px;
+  background-color: #27374d;
+  border-radius: 20px;
+}
+
+.location-button {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+.location-button:hover {
+  opacity: 80%;
+}
+
+.city-input {
+  border: none;
+  border-radius: 5px;
+  background: #dde6ed;
+  padding: 0 5px;
+  margin: 10px 0;
+  width: 250px;
+}
+
+.search-button {
+  border: none;
+  margin: none;
+  background: none;
+  color: #dde6ed;
+  transition: all 200ms ease-in-out;
+}
+.search-button:hover {
+  opacity: 80%;
+}
+
+.today {
+  margin: 0 40px;
+}
+.temp-today {
+  font-size: 80px;
+  font-weight: 500;
+}
+
+.deg-toggle {
+  font-size: 18px;
+  font-weight: 500;
+  position: absolute;
+}
+
+.deg-c {
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.deg-c:hover {
+  text-decoration: underline;
+}
+
+.deg-f {
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.deg-f:hover {
+  text-decoration: underline;
+}
+
+.icon-today {
+  font-size: 60px;
+  padding: 20px 0;
+  margin-top: 15px;
+}
+
+.info-button {
+  font-size: 15px;
+  border: none;
+  background: none;
+  color: #dde6ed;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.info-button:hover {
+  opacity: 80%;
+}
+.more-info {
+  position: relative;
+  display: inline-block;
+}
+.more-info-text {
+  width: 100px;
+  font-size: 12px;
+  position: absolute;
+  padding: 0;
+  bottom: 100%;
+  left: 50%;
+  visibility: hidden;
+  background-color: #27374d;
+  color: #dde6ed;
+  border: solid 1px #dde6ed;
+  border-radius: 5px;
+}
+.more-info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.more-info:hover .more-info-text {
+  visibility: visible;
+}
+
+.details-today {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.max-temp {
+  font-weight: bold;
+}
+
+.future-forecast {
+  font-size: 15px;
+  margin: 0 15px 10px 15px;
+}
+.icon-future {
+  font-size: 35px;
+  padding: 10px;
+}
