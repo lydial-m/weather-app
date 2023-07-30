@@ -26,62 +26,63 @@
   </head>
   <body>
     <div class="container">
-      <form id="input-city-form">
-        <button class="location-button" id="current-location">
-          <i class="fa-solid fa-location-dot"></i>
-        </button>
-        <input
-          class="city-input"
-          type="text"
-          placeholder="Enter your city"
-          autofocus="on"
-          autocomplete="off"
-          id="city-input-value"
-        />
-        <button class="search-button" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-      <br />
-      <h1>Perth</h1>
-      <div class="row today">
-        <div class="col-6 temp-today">
-          <span id="current-temp">17</span>
-          <span class="deg-toggle"
-            >&deg;<span class="deg-c"
-              ><a href="#" id="celcius-toggle">C</a></span
-            >
-            | &deg;<span class="deg-f"
-              ><a href="#" id="fahrenheit-toggle">F</a></span
-            ></span
-          >
-        </div>
-        <div class="col-6">
-          <i class="fa-solid fa-cloud-sun icon-today"></i>
-        </div>
-        <div class="col-6 details-today" id="current-date">Sat, June 17</div>
-        <div class="col-6 details-today">
-          <span id="current-description">Partly cloudy</span>
-          <div class="more-info">
-            <button class="info-button">
-              <i class="fa-solid fa-circle-info"></i>
-            </button>
-            <span class="more-info-text"
-              ><ul class="more-info-list">
-                <li id="humidity">Humidity: 79%</li>
-                <li id="wind">Wind: 3m/s</li>
-              </ul></span
+      <div class="weather-container">
+        <form id="input-city-form">
+          <button class="location-button" id="current-location">
+            <i class="fa-solid fa-location-dot"></i>
+          </button>
+          <input
+            class="city-input"
+            type="text"
+            placeholder="Enter your city"
+            autofocus="on"
+            autocomplete="off"
+            id="city-input-value"
+          />
+          <button class="search-button" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <br />
+        <h1>Perth</h1>
+        <div class="row today">
+          <div class="col-6 temp-today">
+            <span id="current-temp">17</span>
+            <span class="deg-toggle"
+              >&deg;<span class="deg-c"
+                ><a href="#" class="toggle" id="celcius-toggle">C</a></span
+              >
+              | &deg;<span class="deg-f"
+                ><a href="#" class="toggle" id="fahrenheit-toggle">F</a></span
+              ></span
             >
           </div>
-        </div>
-        <div class="col-6 details-today" id="current-time">19:00 GMT+8</div>
-        <!---<div class="col-6 details-today">
+          <div class="col-6">
+            <i class="fa-solid fa-cloud-sun icon-today"></i>
+          </div>
+          <div class="col-6 details-today" id="current-date">Sat, June 17</div>
+          <div class="col-6 details-today">
+            <span id="current-description">Partly cloudy</span>
+            <div class="more-info">
+              <button class="info-button">
+                <i class="fa-solid fa-circle-info"></i>
+              </button>
+              <span class="more-info-text"
+                ><ul class="more-info-list">
+                  <li id="humidity">Humidity: 79%</li>
+                  <li id="wind">Wind: 3m/s</li>
+                </ul></span
+              >
+            </div>
+          </div>
+          <div class="col-6 details-today" id="current-time">19:00 GMT+8</div>
+          <!---<div class="col-6 details-today">
           <span class="max-temp" id="max-temp-today">15&deg;</span
           ><span id="min-temp-today"> 7&deg</span>
         </div>-->
-      </div>
-      <br />
-      <!---<div class="future-forecast">
+        </div>
+        <br />
+        <!---<div class="future-forecast">
         <div class="row">
           <div class="col">
             <i class="fa-solid fa-cloud-sun icon-future"></i>
@@ -115,6 +116,16 @@
           <div class="col"><span class="max-temp">17&deg;</span> 10&deg;</div>
         </div>
       </div>-->
+      </div>
+      <small
+        ><a
+          href="https://github.com/lydialcodes/weather-app"
+          target="_blank"
+          class="git-link"
+          >Open-source code</a
+        >
+        by Lydia Lim</small
+      >
     </div>
     <script src="src/index.js"></script>
   </body>
