@@ -40,25 +40,17 @@ todaysTime.innerHTML = showTime(new Date());
 
 //showcity & display Temperature
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = `${temperature}`;
-
-  let description = response.data.weather[0].main;
   let currentDescription = document.querySelector("#current-description");
-  currentDescription.innerHTML = `${description}`;
-
-  let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `${humidity}`;
-
-  let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `${wind}`;
-
-  let city = response.data.name;
   let cityHeading = document.querySelector("h1");
-  cityHeading.innerHTML = `${city}`;
+
+  currentTemp.innerHTML = Math.round(response.data.main.temp);
+  currentDescription.innerHTML = response.data.weather[0].main;
+  currentHumidity.innerHTML = response.data.main.humidity;
+  currentWind.innerHTML = Math.round(response.data.wind.speed);
+  cityHeading.innerHTML = response.data.name;
 }
 
 function showCity(city) {
