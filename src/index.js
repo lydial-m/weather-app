@@ -38,6 +38,27 @@ let todaysTime = document.querySelector("#current-time");
 todaysDate.innerHTML = showDate(new Date());
 todaysTime.innerHTML = showTime(new Date());
 
+//Icons
+function showIcon(id) {
+  if (id >= 200 && id <= 232) {
+    return "fa-solid fa-cloud-bolt";
+  } else if ((id >= 300 && id <= 321) || (id >= 520 && id <= 531)) {
+    return "fa-solid fa-cloud-rain";
+  } else if (id >= 500 && id <= 504) {
+    return "fa-solid fa-cloud-sun-rain";
+  } else if (id === 511 || (id >= 600 && id <= 622)) {
+    return "fa-regular fa-snowflake";
+  } else if (id >= 701 && id <= 781) {
+    return "fa-solid fa-smog";
+  } else if (id === 800) {
+    return "fa-solid fa-sun";
+  } else if (id >= 801 && id <= 802) {
+    return "fa-solid fa-cloud-sun";
+  } else if (id >= 803 && id <= 804) {
+    return "fa-solid fa-cloud";
+  }
+}
+
 //showcity & display Temperature
 function showTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
@@ -45,12 +66,14 @@ function showTemperature(response) {
   let currentHumidity = document.querySelector("#humidity");
   let currentWind = document.querySelector("#wind");
   let cityHeading = document.querySelector("h1");
+  let currentIcon = document.querySelector("#current-icon");
 
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   currentDescription.innerHTML = response.data.weather[0].main;
   currentHumidity.innerHTML = response.data.main.humidity;
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   cityHeading.innerHTML = response.data.name;
+  currentIcon.setAttribute("class", showIcon(response.data.weather[0].id));
 }
 
 function showCity(city) {
