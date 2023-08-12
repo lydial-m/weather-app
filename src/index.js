@@ -50,33 +50,35 @@ function showTemperature(response) {
 
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `Humidity: ${humidity}%`;
+  currentHumidity.innerHTML = `${humidity}`;
 
   let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `Wind: ${wind}m/s`;
+  currentWind.innerHTML = `${wind}`;
 
   let city = response.data.name;
   let cityHeading = document.querySelector("h1");
   cityHeading.innerHTML = `${city}`;
-  console.log(response);
 }
 
-function showCity(event) {
-  event.preventDefault();
-  let cityInputValue = document.querySelector("#city-input-value");
-  let cityHeading = document.querySelector("h1");
-  cityHeading.innerHTML = `${cityInputValue.value}`;
-
+function showCity(city) {
   let apiKey = "743bee57fddbfaf52447193a87d5dd25";
   let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInputValue.value}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showTemperature);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input-value").value;
+  showCity(city);
+}
+
 let inputCity = document.querySelector("#input-city-form");
-inputCity.addEventListener("submit", showCity);
+inputCity.addEventListener("submit", handleSubmit);
+
+showCity("Perth");
 
 //Current location
 
