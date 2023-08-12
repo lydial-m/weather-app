@@ -32,12 +32,6 @@ function showTime(date) {
   return todaysTime;
 }
 
-let todaysDate = document.querySelector("#current-date");
-let todaysTime = document.querySelector("#current-time");
-
-todaysDate.innerHTML = showDate(new Date());
-todaysTime.innerHTML = showTime(new Date());
-
 //Icons
 function showIcon(id) {
   if (id >= 200 && id <= 232) {
@@ -68,6 +62,8 @@ function showTemperature(response) {
   let cityHeading = document.querySelector("h1");
   let currentIcon = document.querySelector("#current-icon");
 
+  celsiusTemp = response.data.main.temp;
+
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   currentDescription.innerHTML = response.data.weather[0].main;
   currentHumidity.innerHTML = response.data.main.humidity;
@@ -90,11 +86,6 @@ function handleSubmit(event) {
   showCity(city);
 }
 
-let inputCity = document.querySelector("#input-city-form");
-inputCity.addEventListener("submit", handleSubmit);
-
-showCity("Perth");
-
 //Current location
 
 function showPosition(position) {
@@ -111,5 +102,47 @@ function getPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+//convert C & F
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  celsiusToggle.classList.remove("active");
+  celsiusToggle.classList.add("inactive");
+  fahrenheitToggle.classList.remove("inactive");
+  fahrenheitToggle.classList.add("active");
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temp");
+  celsiusToggle.classList.add("active");
+  celsiusToggle.classList.remove("inactive");
+  fahrenheitToggle.classList.add("inactive");
+  fahrenheitToggle.classList.remove("active");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+}
+//Global variables
+
+let todaysDate = document.querySelector("#current-date");
+let todaysTime = document.querySelector("#current-time");
+
+todaysDate.innerHTML = showDate(new Date());
+todaysTime.innerHTML = showTime(new Date());
+
+let celsiusTemp = null;
+
+let inputCity = document.querySelector("#input-city-form");
+inputCity.addEventListener("submit", handleSubmit);
+
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getPosition);
+
+let fahrenheitToggle = document.querySelector("#fahrenheit-toggle");
+fahrenheitToggle.addEventListener("click", showFahrenheitTemp);
+
+let celsiusToggle = document.querySelector("#celsius-toggle");
+celsiusToggle.addEventListener("click", showCelsiusTemp);
+
+showCity("Perth");

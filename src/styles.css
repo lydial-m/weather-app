@@ -78,27 +78,21 @@ small {
   position: absolute;
 }
 
-.toggle {
+.active {
+  color: #dde6ed;
+  cursor: default;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.inactive {
   color: #dde6ed;
   text-decoration: none;
 }
 
-.deg-c {
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-}
-
-.deg-c:hover {
+.inactive:hover {
   text-decoration: underline;
-}
-
-.deg-f {
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-}
-
-.deg-f:hover {
-  text-decoration: underline;
+  opacity: 80%;
 }
 
 .icon-today {
