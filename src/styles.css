@@ -80,7 +80,7 @@ small {
   display: inline;
 }
 
-@media (max-width: 355px) {
+@media (max-width: 400px) {
   .city-input {
     width: 60vw;
   }
