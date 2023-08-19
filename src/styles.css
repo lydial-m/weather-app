@@ -144,7 +144,7 @@ small {
   display: inline-block;
 }
 .more-info-text {
-  width: 100px;
+  width: 15vw;
   font-size: 12px;
   position: absolute;
   padding: 0;
