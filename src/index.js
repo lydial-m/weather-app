@@ -133,23 +133,38 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  console.log(response);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 future-forecast-day">
-                <i class="fa-solid fa-cloud-sun icon-future"></i>
-                <div class="future-forecast-date">${day}</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 6) {
+      let forecastIcon = showIcon(forecastDay.weather[0].id);
+      let formattedDay = formatForecastDay(forecastDay.dt);
+      let maxTemp = Math.round(forecastDay.temp.max);
+      let minTemp = Math.round(forecastDay.temp.min);
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2 future-forecast-day">
+                <i class="${forecastIcon} future-forecast-icon"></i>
+                <div class="future-forecast-date">${formattedDay}</div>
                 <div class="future-forecast-temp">
-                  <span class="future-forecast-max-temp">17&deg;</span
-                  ><span class="future-forecast-min-temp"> 5&deg;</span>
+                  <span class="future-forecast-max-temp">${maxTemp}&deg;</span
+                  ><span class="future-forecast-min-temp"> ${minTemp}&deg;</span>
                 </div>
               </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
