@@ -56,6 +56,8 @@ small {
   border-radius: 50%;
   cursor: pointer;
   transition: all 200ms ease-in-out;
+  max-width: 25px;
+  max-height: 25px;
 }
 
 .location-button-day {
@@ -77,12 +79,6 @@ small {
   padding: 0 5px;
   margin: 10px 0;
   width: 250px;
-}
-
-@media (max-width: 430px) {
-  .city-input {
-    width: 200px;
-  }
 }
 
 .search-button {
@@ -150,7 +146,7 @@ small {
 }
 .more-info-text {
   width: 85px;
-  font-size: 12px;
+  font-size: 10px;
   position: absolute;
   padding: 0;
   visibility: hidden;
@@ -158,6 +154,12 @@ small {
   color: #dde6ed;
   border: solid 1px #dde6ed;
   border-radius: 5px;
+}
+
+@media (max-width: 620px) {
+  .more-info-text {
+    width: 12vw;
+  }
 }
 
 .more-info-list {
