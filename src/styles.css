@@ -51,11 +51,13 @@ small {
 }
 
 .location-button {
-  display: inline;
+  display: inline-block;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: all 200ms ease-in-out;
+  width: 25px;
+  height: 25px;
 }
 
 .location-button-day {
