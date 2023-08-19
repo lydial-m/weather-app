@@ -92,8 +92,9 @@ small {
 }
 
 .today {
-  margin: 0 40px;
+  margin: 0 3vw;
 }
+
 .temp-today {
   font-size: 80px;
   font-weight: 500;
@@ -147,7 +148,6 @@ small {
   font-size: 12px;
   position: absolute;
   padding: 0;
-  left: 120%;
   visibility: hidden;
   background: none;
   color: #dde6ed;
@@ -187,7 +187,7 @@ small {
 }
 .future-forecast-icon {
   font-size: 35px;
-  padding: 10px;
+  padding: 10px 0 10px 0;
 }
 
 .git-link {
