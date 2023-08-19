@@ -57,6 +57,8 @@ function showIcon(id) {
 function showTemperature(response) {
   let currentTemp = document.querySelector("#current-temp");
   let currentDescription = document.querySelector("#current-description");
+  let maxTemp = document.querySelector("#max-temp-today");
+  let minTemp = document.querySelector("#min-temp-today");
   let currentHumidity = document.querySelector("#humidity");
   let currentWind = document.querySelector("#wind");
   let cityHeading = document.querySelector("h1");
@@ -64,8 +66,12 @@ function showTemperature(response) {
 
   celsiusTemp = response.data.main.temp;
 
+  console.log(response.data);
+
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   currentDescription.innerHTML = response.data.weather[0].main;
+  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
+  minTemp.innerHTML = Math.round(response.data.main.temp_min);
   currentHumidity.innerHTML = response.data.main.humidity;
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   cityHeading.innerHTML = response.data.name;
