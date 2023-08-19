@@ -123,6 +123,30 @@ function showCelsiusTemp(event) {
   fahrenheitToggle.classList.remove("active");
   currentTemp.innerHTML = Math.round(celsiusTemp);
 }
+
+//Forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 future-forecast-day">
+                <i class="fa-solid fa-cloud-sun icon-future"></i>
+                <div class="future-forecast-date">${day}</div>
+                <div class="future-forecast-temp">
+                  <span class="future-forecast-max-temp">17&deg;</span
+                  ><span class="future-forecast-min-temp"> 5&deg;</span>
+                </div>
+              </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Global variables
 
 let todaysDate = document.querySelector("#current-date");
@@ -146,3 +170,4 @@ let celsiusToggle = document.querySelector("#celsius-toggle");
 celsiusToggle.addEventListener("click", showCelsiusTemp);
 
 showCity("Perth");
+displayForecast();
