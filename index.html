@@ -28,23 +28,24 @@
     <div class="container">
       <div class="weather-container-wrapper">
         <div class="weather-container">
-          <form id="input-city-form">
+          <div class="search-element">
             <button class="location-button" id="current-location">
               <i class="fa-solid fa-location-dot"></i>
             </button>
-            <input
-              class="city-input"
-              type="text"
-              placeholder="Enter your city"
-              autofocus="on"
-              autocomplete="off"
-              id="city-input-value"
-            />
-            <button class="search-button" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-          <br />
+            <form id="input-city-form">
+              <input
+                class="city-input"
+                type="text"
+                placeholder="Enter your city"
+                autofocus="on"
+                autocomplete="off"
+                id="city-input-value"
+              />
+              <button class="search-button" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+          </div>
           <h1></h1>
           <div class="row today">
             <div class="col-6 temp-today">

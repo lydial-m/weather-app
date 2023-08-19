@@ -5,6 +5,7 @@ body {
 
 form {
   text-align: center;
+  display: inline;
 }
 
 h1 {
@@ -34,7 +35,11 @@ small {
   color: #dde6ed;
 }
 
+.search-element {
+  margin: 10px 0 15px 0;
+}
 .location-button {
+  display: inline;
   border: none;
   border-radius: 50%;
   cursor: pointer;
