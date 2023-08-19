@@ -151,6 +151,10 @@ small {
   font-size: 15px;
   margin: 0 15px 10px 15px;
 }
+
+.future-forecast-max-temp {
+  font-weight: bold;
+}
 .icon-future {
   font-size: 35px;
   padding: 10px;
