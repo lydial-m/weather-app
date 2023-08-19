@@ -70,6 +70,8 @@ function showTemperature(response) {
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   cityHeading.innerHTML = response.data.name;
   currentIcon.setAttribute("class", showIcon(response.data.weather[0].id));
+
+  getForecast(response.data.coord);
 }
 
 function showCity(city) {
@@ -125,8 +127,14 @@ function showCelsiusTemp(event) {
 }
 
 //Forecast
+function getForecast(coordinates) {
+  let apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -170,4 +178,3 @@ let celsiusToggle = document.querySelector("#celsius-toggle");
 celsiusToggle.addEventListener("click", showCelsiusTemp);
 
 showCity("Perth");
-displayForecast();
