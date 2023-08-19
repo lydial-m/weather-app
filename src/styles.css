@@ -26,7 +26,16 @@ small {
   margin: 0 auto;
 }
 
-.weather-container {
+.weather-container-day {
+  margin: 30px auto 0px auto;
+  padding: 20px 10px;
+  background-color: #2e8bc0;
+  border-radius: 20px;
+  text-align: center;
+  color: #dde6ed;
+}
+
+.weather-container-night {
   margin: 30px auto 0px auto;
   padding: 20px 10px;
   background-color: #27374d;
@@ -38,17 +47,30 @@ small {
 .search-element {
   margin: 10px 0 15px 0;
 }
-.location-button {
+.location-button-day {
   display: inline;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: all 200ms ease-in-out;
+  color: #2e8bc0;
 }
-.location-button:hover {
+
+.location-button-day:hover {
   opacity: 80%;
 }
 
+.location-button-night {
+  display: inline;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  color: #27374d;
+}
+.location-button-night:hover {
+  opacity: 80%;
+}
 .city-input {
   border: none;
   border-radius: 5px;
@@ -125,10 +147,9 @@ small {
   font-size: 12px;
   position: absolute;
   padding: 0;
-  bottom: 100%;
-  left: 50%;
+  left: 120%;
   visibility: hidden;
-  background-color: #27374d;
+  background: none;
   color: #dde6ed;
   border: solid 1px #dde6ed;
   border-radius: 5px;

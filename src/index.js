@@ -28,6 +28,16 @@ function showTime(date) {
   let currentHour = date.getHours();
   let currentMinutes = ("0" + date.getMinutes()).slice(-2);
 
+  let locationButton = document.querySelector("#current-location");
+  let weatherContainer = document.querySelector("#weather-container");
+  if (currentHour >= 6 && currentHour < 18) {
+    weatherContainer.classList.add("weather-container-day");
+    locationButton.classList.add("location-button-day");
+  } else {
+    weatherContainer.classList.add("weather-container-night");
+    locationButton.classList.add("location-button-night");
+  }
+
   let todaysTime = `${currentHour}:${currentMinutes}`;
   return todaysTime;
 }
@@ -66,8 +76,6 @@ function showTemperature(response) {
 
   celsiusTemp = response.data.main.temp;
 
-  console.log(response.data);
-
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   currentDescription.innerHTML = response.data.weather[0].main;
   maxTemp.innerHTML = Math.round(response.data.main.temp_max);
@@ -80,12 +88,33 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 
+function showTemperatureImperial(response) {
+  let currentTemp = document.querySelector("#current-temp");
+  let maxTemp = document.querySelector("#max-temp-today");
+  let minTemp = document.querySelector("#min-temp-today");
+
+  currentTemp.innerHTML = Math.round(response.data.main.temp);
+  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
+  minTemp.innerHTML = Math.round(response.data.main.temp_min);
+
+  getForecastImperial(response.data.coord);
+}
+
 function showCity(city) {
   let apiKey = "743bee57fddbfaf52447193a87d5dd25";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showTemperature);
+}
+
+function showCityImperial() {
+  let currentCity = document.querySelector("h1").textContent;
+  let apiKey = "743bee57fddbfaf52447193a87d5dd25";
+  let units = "imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showTemperatureImperial);
 }
 
 function handleSubmit(event) {
@@ -113,29 +142,43 @@ function getPosition() {
 //convert C & F
 function showFahrenheitTemp(event) {
   event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   celsiusToggle.classList.remove("active");
   celsiusToggle.classList.add("inactive");
   fahrenheitToggle.classList.remove("inactive");
   fahrenheitToggle.classList.add("active");
-  let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = Math.round(fahrenheitTemp);
+
+  showCityImperial();
+}
+
+function returnToCelcius() {
+  let currentCity = document.querySelector("h1").textContent;
+  let apiKey = "743bee57fddbfaf52447193a87d5dd25";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function showCelsiusTemp(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#current-temp");
   celsiusToggle.classList.add("active");
   celsiusToggle.classList.remove("inactive");
   fahrenheitToggle.classList.add("inactive");
   fahrenheitToggle.classList.remove("active");
-  currentTemp.innerHTML = Math.round(celsiusTemp);
+
+  returnToCelcius();
 }
 
 //Forecast
 function getForecast(coordinates) {
   let apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function getForecastImperial(coordinates) {
+  let apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
