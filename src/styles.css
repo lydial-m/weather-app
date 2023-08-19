@@ -56,8 +56,6 @@ small {
   border-radius: 50%;
   cursor: pointer;
   transition: all 200ms ease-in-out;
-  max-width: 25px;
-  max-height: 25px;
 }
 
 .location-button-day {
