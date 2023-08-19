@@ -77,11 +77,19 @@ small {
   padding: 0 5px;
   margin: 10px 0;
   width: 250px;
+  display: inline;
+}
+
+@media (max-width: 355px) {
+  .city-input {
+    width: 60vw;
+  }
 }
 
 .search-button {
   border: none;
   margin: none;
+  display: inline;
   background: none;
   color: #dde6ed;
   transition: all 200ms ease-in-out;
