@@ -96,6 +96,7 @@ small {
   background: none;
   color: #dde6ed;
   transition: all 200ms ease-in-out;
+  padding: 0px;
 }
 .search-button:hover {
   opacity: 80%;
@@ -144,6 +145,7 @@ small {
   color: #dde6ed;
   cursor: pointer;
   transition: all 200ms ease-in-out;
+  padding: 0px;
 }
 
 .info-button:hover {
