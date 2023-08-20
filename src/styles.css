@@ -62,8 +62,7 @@ small {
 
 @media screen and (max-width: 400px) {
   .location-button {
-    width: 70%;
-    height: 70%;
+    font-size: smaller;
   }
 }
 
