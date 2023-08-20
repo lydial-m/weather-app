@@ -60,12 +60,19 @@ small {
   height: 25px;
 }
 
-.location-button-day {
-  color: #2e8bc0;
+@media screen and (max-width: 400px) {
+  .location-button {
+    width: 70%;
+    height: 70%;
+  }
 }
 
 .location-button:hover {
   opacity: 80%;
+}
+
+.location-button-day {
+  color: #2e8bc0;
 }
 
 .location-button-night {
@@ -82,7 +89,7 @@ small {
   display: inline;
 }
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
   .city-input {
     width: 60vw;
   }
@@ -164,7 +171,7 @@ small {
   border-radius: 5px;
 }
 
-@media (max-width: 620px) {
+@media screen and (max-width: 620px) {
   .more-info-text {
     width: 12vw;
   }
