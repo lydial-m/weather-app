@@ -52,13 +52,10 @@ small {
 
 .location-button {
   display: inline-block;
-  text-align: center;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: all 200ms ease-in-out;
-  width: 25px;
-  height: 25px;
 }
 
 @media screen and (max-width: 400px) {
