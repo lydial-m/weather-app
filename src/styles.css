@@ -58,6 +58,7 @@ small {
   transition: all 200ms ease-in-out;
   width: 25px;
   height: 25px;
+  line-height: 100%;
 }
 
 @media screen and (max-width: 400px) {
